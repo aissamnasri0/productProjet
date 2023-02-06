@@ -1,0 +1,53 @@
+﻿
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ais produit</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" />
+</head>
+<body>
+<nav>
+        <img class="imagelogo" src="/image/logo.png"/>
+        <div class="onglets">
+            <p class="link"><a asp-controller="Produits" asp-action="HomeProduit">Home</a></p>
+            <p class="link"><a asp-controller="Produits" asp-action="GetMyProduit">mes produit</a></p>
+            <p class="link"><a href="/Identity/Account/Manage">utilisateur</a></p>
+           
+            
+        </div>
+    </nav>
+
+<h1>mes produits</h1>
+
+<div>
+    
+    @foreach(var item in Model){
+    <hr />
+        <img class="getmyproduitsimg" src="@item.image" />
+        <div class="getmyproduits">
+        <p><strong>nom du produit : </strong>@item.Name</p>
+        <p><strong>Prix : </strong>@item.Price</p>
+        <p><strong>description : </strong>@item.description</p>
+        <p><a asp-action="annuler" asp-route-id="@item.Id">anuuler l'achat</a></p>
+        </div>
+    }
+        
+</div>
+    <a asp-controller="Produits" asp-action="generatePdf">telecharger facture</a>
+<footer>
+        <p>&copy; Contactez-nous au 06 98 87 82 00</p>
+        <div class="social-media">
+            <p><i class="fab fa-facebook-f"></i></p>
+            <p><i class="fab fa-twitter"></i></p>
+            <p><i class="fab fa-instagram"></i></p>
+            <p><i class="fab fa-linkedin-in"></i></p>
+        </div>
+    </footer>
+    <!-- Fin du pied de page -->
+</body>
+</html>
+

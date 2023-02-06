@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ais produit</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" />
+</head>
+<body>
+    <!-- Barre de navigation -->
+    <nav>
+        <img class="imagelogo" src="/image/logo.png"/>
+        <div class="onglets">
+            <p class="link"><a asp-controller="Produits" asp-action="HomeProduit">Home</a></p>
+            <p class="link"><a asp-controller="Produits" asp-action="GetMyProduit">mes produit</a></p>
+            <p class="link"><a href="/Identity/Account/Manage">utilisateur</a></p>
+           
+            
+        </div>
+    </nav>
+    <!-- Fin de la barre de navigation -->
+    <!-- Header -->
+    <header>
+        <h1>Bienvenue, c'est votre chez-vous.</h1>
+        <button>Naviguer <i class="fas fa-paper-plane"></i></button>
+    </header>
+    <!-- Fin du header -->
+    <!-- Section principale -->
+    <section class="main">
+
+        <!-- Toutes les cartes -->
+        
+          <div class="cards">
+            @foreach (var item in Model)
+            {
+            <div class="card">
+                <img class="imageproduit" src="@item.image">
+                <div class="card-header">
+                    <h4 class="title"><strong>Produit: </strong>@item.Name</h4>
+                    <h4 class="price"><strong>prix: </strong>@item.Price euro</h4>
+                    <h4 class="price"><strong>description: </strong>@item.description euro</h4>
+                </div>
+                    <div> <a asp-action="acheterProduit" asp-route-id="@item.Id" >acheter</a></div>
+               
+            </div>
+ 
+            }
+        </div>
+       
+    </section>
+    <!-- Fin de la section principale -->
+    <!-- Pied de page -->
+    <footer>
+        <p>&copy; Contactez-nous au 06 98 87 82 00</p>
+        <div class="social-media">
+            <p><i class="fab fa-facebook-f"></i></p>
+            <p><i class="fab fa-twitter"></i></p>
+            <p><i class="fab fa-instagram"></i></p>
+            <p><i class="fab fa-linkedin-in"></i></p>
+        </div>
+    </footer>
+    <!-- Fin du pied de page -->
+</body>
+</html>
